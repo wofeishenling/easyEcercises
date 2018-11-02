@@ -1,2 +1,2 @@
-# easyEcercises
+# easyExercises
 some easy tests
