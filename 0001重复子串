@@ -1,0 +1,36 @@
+母串由一个子串重复n次得到。
+给定一个字符串“abcdabcdabcdabcd”，它是由子串“abcd”重复四次得到的，也可以看成由子串“abcdabcd” 重复两次得到的，此时要输出长的那个子串，即“abcdabcd”。
+实在找不到重复2次或以上的情况，就输出字符串本身，表示它由自己重复1次得到。
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+	int flag = 0;
+	string temp;
+	string s;
+	cin >> s;
+	for (int i = 2; i <= s.size(); i++)
+	{
+		if (s.size() % i == 0)
+		{
+			string x;
+			temp.assign(s.begin(), s.begin() + s.size() / i);
+			for (int j = 0; j < i; j++)
+			{
+				x += temp;
+			}
+			if (x == s)
+			{
+				flag = 1;
+				break;
+			}
+		}
+	}
+	if (flag) cout << temp << endl;
+	else cout << s << endl;
+	system("pause");
+	return 0;
+}
